@@ -10,10 +10,10 @@ function WykresSlupkowy(props) {
       <h1>Zajebiste Wyniki</h1>
       <h2>{props.title}</h2>
       <VictoryChart
-        // animate={{
-        //   duration: 2000,
-        //   easing: "bounce"
-        // }}
+        animate={{
+          duration: 2000,
+          easing: "bounce"
+        }}
         theme={VictoryTheme.material}
         domainPadding={10}
       >

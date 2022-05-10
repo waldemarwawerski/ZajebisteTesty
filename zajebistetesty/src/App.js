@@ -8,7 +8,7 @@ import data1 from './dane/data1';
 import data2 from './dane/data2';
 import {useEffect, useState} from 'react';
 
-function App() {
+const App = () => {
 
   // co chcemy zrobić?
   /*
@@ -24,7 +24,7 @@ function App() {
   // nowa zmienna "data" i przypisuje do niej wartosc domyślną "data0"
 
   // USTAW WARTOSC ZEROWA DLA WYKRESU I ZDEFINUJ MI DATA I SETDATA
-  const [data, setData] = useState(data0);
+   const [data, setData] = useState(data1);
 
   // 3 razy program nam to uruchamia, a chcemy tylko raz
 
@@ -33,39 +33,39 @@ function App() {
     // uruchom mi ten kod tylko raz kiedy nasza aplikacja się uruchamia.
     // alert('komunikat powinien sie pojawić tylko raz na uruchomieniu nasze aplikacji');
 
-    // URUCHOM MI KOD PO 10 sekundach
-    setTimeout(()=>{
+    // // URUCHOM MI KOD PO 10 sekundach
+    // setTimeout(()=>{
 
-      // USTAW WARTOSC DLA WYKRESU
-      setData(data1);
-      // tutaj zrób coś po sekundzie
+    //   // USTAW WARTOSC DLA WYKRESU
+    //   setData(data1);
+    //   // tutaj zrób coś po sekundzie
      
-    }, 5000)
+    // }, 2000)
 
-    // URUCHOM MI KOD PO 10 sekundach
-    setTimeout(()=>{
+   // URUCHOM MI KOD PO 10 sekundach
+   // setTimeout(()=>{
 
-      // USTAW WARTOSC DLA WYKRESU
-      setData(data2);
-      // tutaj zrób coś po sekundzie
+   // USTAW WARTOSC DLA WYKRESU
+   //   setData(data2);
+   // tutaj zrób coś po sekundzie
      
-    }, 10000)
+   // }, 10000)
 
   }, [])
 
   
-
+console.log('App');
   return (
     <div className="App">
       <WykresSlupkowy
         data={data}
         title={"Pobranie Loriini Tribes na iOS"}
       />
-      <WykresSlupkowy
+      {/* <WykresSlupkowy
         data={data2}
         title={"Pobranie Loriini Tribes na Androidzie"}
       />
-      <StackedPolarBars />
+      <StackedPolarBars /> */}
     </div>
   );
 }

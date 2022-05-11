@@ -2,6 +2,7 @@ import logo from './logo.svg';
 import './App.css';
 import { VictoryBar, VictoryChart, VictoryTheme, VictoryLabel } from "victory"
 import WykresSlupkowy from './WykresSlupkowy';
+import Pytanie from './Pytanie';
 import StackedPolarBars from './StackedPolarBars';
 import data0 from './dane/data0';
 import data1 from './dane/data1';
@@ -57,10 +58,13 @@ const App = () => {
 console.log('App');
   return (
     <div className="App">
+        <Pytanie
+      />
       <WykresSlupkowy
         data={data}
         title={"Pobranie Loriini Tribes na iOS"}
       />
+     
       {/* <WykresSlupkowy
         data={data2}
         title={"Pobranie Loriini Tribes na Androidzie"}

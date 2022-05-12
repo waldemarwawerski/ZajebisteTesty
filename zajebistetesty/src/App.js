@@ -3,6 +3,8 @@ import './App.css';
 import { VictoryBar, VictoryChart, VictoryTheme, VictoryLabel } from "victory"
 import WykresSlupkowy from './WykresSlupkowy';
 import Pytanie from './Pytanie';
+import Pytanie7 from './Pytanie7';
+import Pytanie8 from './Pytanie8';
 import StackedPolarBars from './StackedPolarBars';
 import data0 from './dane/data0';
 import data1 from './dane/data1';
@@ -58,8 +60,10 @@ const App = () => {
 console.log('App');
   return (
     <div className="App">
-        <Pytanie
-      />
+        <Pytanie />
+        <Pytanie7/>
+        <Pytanie8/>
+        
       <WykresSlupkowy
         data={data}
         title={"Pobranie Loriini Tribes na iOS"}
@@ -72,6 +76,7 @@ console.log('App');
       <StackedPolarBars /> */}
     </div>
   );
+  
 }
 
 export default App;

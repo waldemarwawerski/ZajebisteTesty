@@ -58,9 +58,14 @@ const App = () => {
 
   
 console.log('App');
+
+
+ // <Pytanie props1={"pierwszy parametr naszego komponentu"} props2={"drugi parametr naszego komponentu"}>children</Pytanie>
   return (
     <div className="App">
-        <Pytanie />
+        <Pytanie scala={[1, 2, 3, 4, 5, 6, 7, 8, 9, 10]}>Członkowie zespołu ufają sobie wzajemnie?</Pytanie>
+        <Pytanie scala={[1, 2, 3, 4, 5, 6, 7,8]}>Wszyscy otwarcie dyskutują na temat własnych słabości, błędów i obaw.</Pytanie>
+        <Pytanie scala={[1, 2, 3, 4, 5,6]}>Są otwarci wobec innych.</Pytanie>
         <Pytanie7/>
         <Pytanie8/>
         

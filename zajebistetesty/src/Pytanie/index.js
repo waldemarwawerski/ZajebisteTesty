@@ -41,21 +41,25 @@ function Pytanie(props) {
   // zwraca kazdy elemt tej tablicy 
   // w funkcji a nastepnie przekazuje je do tablicy
 
+
+ 
   return (
     <div className="App">
-      Członkowie zespołu ufają sobie wzajemnie
+      {props.children}
       <div>
-        {[1, 2, 3, 4, 5, 6, 7, 8, 9, 10].map((wartosc) => {
+        {props.scala.map((wartosc) => {
           
           let szerokosc;
           let wysokosc;
 
-          if(wartosc <= 5)
+          const wartoscSrodkowa = Math.ceil(props.scala.length/2);
+
+          if(wartosc <= wartoscSrodkowa)
           {
             szerokosc = 30 - 2*(wartosc-1);
             wysokosc = szerokosc;
           }else{
-            szerokosc = 22 + 2*(wartosc-6);
+            szerokosc = 22 + 2*(wartosc-wartoscSrodkowa);
             wysokosc = szerokosc; 
           }
          

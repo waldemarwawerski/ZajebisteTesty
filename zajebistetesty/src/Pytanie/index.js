@@ -12,8 +12,8 @@ function Pytanie(props) {
     alert('cos wyswietlam 2');
   }
   function przekazWartosc(wartosc) {
-    alert(wartosc);
-  };
+    props.zapiszDane(wartosc);
+   };
 
   // uruchamiam funkcje
   // wyswietlmicos();
@@ -30,7 +30,7 @@ function Pytanie(props) {
       width: wysokosc, 
       height: szerokosc, 
       borderWidth: 2, 
-      borderColor: 'red' 
+      borderColor: props.color
     }
   };
 
@@ -73,7 +73,7 @@ function Pytanie(props) {
         }
       </div>
     </div>
-  );
+  )
 }
 
 // Zadanie domowe 

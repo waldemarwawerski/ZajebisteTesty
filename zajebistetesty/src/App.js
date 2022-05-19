@@ -64,6 +64,10 @@ const App = () => {
           Stosunek zarejestrowanych kont do wykonanych testów
           </strong>
         </center>  
+        <div> style={{
+          fontSize: 30
+        }}
+        </div>
         <div>
           <center>
           99 %

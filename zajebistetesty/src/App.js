@@ -8,7 +8,7 @@ const App = () => {
 
   getData.then((v) => {
     const answers = Object.keys(v.answers).map((key) => v.answers[key]);
-    const messages = Object.keys(v.messages).map((key) => v.answers[key]);
+    const messages = Object.keys(v.messages).map((key) => v.messages[key]);
     setUserCounter(answers.length);
   });
 

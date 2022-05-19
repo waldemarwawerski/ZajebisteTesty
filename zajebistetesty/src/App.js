@@ -52,8 +52,18 @@ const App = () => {
         </div>
       </div>
 
-      <div>
-        Stosunek zarejestrowanych kont do wykonanych testów
+      <div
+      style={{
+        border: '3px solid black',
+        width: '25%',
+        padding: '20px',
+        margin: '20px'
+      }}>
+        <center>
+          <strong>
+          Stosunek zarejestrowanych kont do wykonanych testów
+          </strong>
+        </center>  
         <div>
           <center>
           99 %

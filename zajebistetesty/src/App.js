@@ -8,6 +8,7 @@ import Telefon from './Chiny/Telefon';
 const App = () => {
   const [userCounter, setUserCounter] = useState();
   const [userCounterWhoWroteMessages, setUserCounterWhoWroteMessages] = useState();
+  const [skonczoneTesty, setSkonczoneTesty] = useState();
 
   /* Magiczny kod który pobiera dane z bazy danych */
   getData.then((dane) => {
@@ -17,6 +18,10 @@ const App = () => {
 
     // tutaj przypisujemy konkretną wartość do zmiennej userCouter
     setUserCounter(answers.length); // <-- tego kodu nie ruszasz bo to jest mój
+
+    // testy ktore sa skończone
+    const testFinished = answers.filter((test)=>test.length >= 18);
+    setSkonczoneTesty(testFinished.length);
 
     //tutaj przypisujemy konkretną wartość do zmiennej userCounterWhoWroteMessages
     // 1. Uzyj funkcji setUserConterWhoWroteMassages zamiast setUserCounter
@@ -28,8 +33,16 @@ const App = () => {
   });
 
 
+
+  // Zadani domowe zrób aby było ładnie!
+  // tak zrób z resztą
+
+  // nowa wartość ->> skonczoneTesty
   return (
     <>
+    { 
+    // **zamien tego Diva na kompoennt , wyrzuc to do pliku a następnie dodaj import w tym pliku i uzyj tego komponentu}
+}
       <div
         style={{
           display: "flex",
@@ -39,7 +52,7 @@ const App = () => {
           flexWrap: "wrap"
         }}
       >
-       <Ramka dane="3">Dupa</Ramka>
+       <Ramka dane={userCounter}>Liczba wykonanych testów</Ramka>
        <Ramka></Ramka>
        <Ramka></Ramka>
        <Ramka></Ramka>

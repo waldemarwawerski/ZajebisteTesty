@@ -2,6 +2,8 @@ import { useState } from "react";
 import ZajebisteWykresy from "./Pages/ZajebisteWykresy";
 import "./App.css";
 import { getData } from "./server";
+import Ramka from "./Ramka";
+import Telefon from './Chiny/Telefon';
 
 const App = () => {
   const [userCounter, setUserCounter] = useState();
@@ -25,6 +27,7 @@ const App = () => {
     console.log("messages", messages);
   });
 
+
   return (
     <>
       <div
@@ -33,30 +36,17 @@ const App = () => {
           justifyContent: "space-around",
           alignItems: "center",
           alignContent: "center",
+          flexWrap: "wrap"
         }}
       >
-        <div
-          style={{
-            border: "3px solid black",
-            width: '350px',
-            height: '60px',
-            padding: "20px",
-            margin: "20px",
-          }}
-        >
-          <center>
-            <strong>Liczba zarejestrowanych użytkowników</strong>
-          </center>
-          <center>
-            <div
-              style={{
-                fontSize: 30,
-              }}
-            >
-              X
-            </div>
-          </center>
-        </div>
+       <Ramka dane="3">Dupa</Ramka>
+       <Ramka></Ramka>
+       <Ramka></Ramka>
+       <Ramka></Ramka>
+       <Ramka></Ramka>
+       <Ramka></Ramka>
+       <Ramka>Dupa2</Ramka>
+
 
         <div
           style={{
@@ -133,105 +123,7 @@ const App = () => {
       }
 
 
-        <div
-        style={{
-          display: "flex",
-          justifyContent: "space-around",
-          alignItems: "center",
-          alignContent: "center",
-        }}
-      >
-        <div
-          style={{
-            border: "3px solid black",
-            width: '350px',
-            height: '60px',
-            padding: "20px",
-            margin: "20px",
-          }}
-        >
-          <center>
-            <strong>Czerwony</strong>
-          </center>
-          <center>
-            <div
-              style={{
-                fontSize: 30,
-              }}
-            >
-              X
-            </div>
-          </center>
-        </div>
-
-        <div
-          style={{
-            border: "3px solid black",
-            width: '350px',
-            height: '60px',
-            padding: "20px",
-            margin: "20px",
-          }}
-        >
-          <center>
-            <b>Żółty</b>
-          </center>
-          <center>
-            <div
-              style={{
-                fontSize: 30,
-              }}
-            >
-              X
-            </div>
-          </center>
-        </div>
-
-      <div
-      style={{
-        border: '3px solid black',
-        width: '350px',
-        height: '60px',
-        padding: '20px',
-        margin: '20px'
-      }}>
-        <center>
-          <strong>
-         Zielony
-          </strong>
-        </center>  
-        <center>
-          <div style={{
-            fontSize: 30
-          }}>
-            X
-            </div>
-        </center>
-        </div>
-      
        
-      <div
-      style={{
-        border: '3px solid black',
-        width: '300px',
-        height: '60px',
-        padding: '20px',
-        margin: '20px'
-      }}>
-        <center>
-          <strong>
-        Niebieski
-          </strong>
-        </center>  
-        <center>
-          <div style={{
-            fontSize: 30
-          }}>
-          X
-            </div>
-        </center>
-        </div>
-        </div>
         
 
       {/* <ZajebisteWykresy /> */}

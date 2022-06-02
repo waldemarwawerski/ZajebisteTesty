@@ -4,6 +4,7 @@ import "./App.css";
 import { getData } from "./server";
 import Ramka from "./Ramka";
 import Telefon from './Chiny/Telefon';
+import RamkaWrapper from "./RamkaWrapper";
 
 const App = () => {
   const [userCounter, setUserCounter] = useState();
@@ -20,7 +21,7 @@ const App = () => {
     setUserCounter(answers.length); // <-- tego kodu nie ruszasz bo to jest mój
 
     // testy ktore sa skończone
-    const testFinished = answers.filter((test)=>test.length >= 18);
+    const testFinished = answers.filter((test)=>test.length >= 17);
     setSkonczoneTesty(testFinished.length);
 
     //tutaj przypisujemy konkretną wartość do zmiennej userCounterWhoWroteMessages
@@ -32,115 +33,14 @@ const App = () => {
     console.log("messages", messages);
   });
 
-
-
-  // Zadani domowe zrób aby było ładnie!
-  // tak zrób z resztą
-
-  // nowa wartość ->> skonczoneTesty
   return (
-    <>
-    { 
-    // **zamien tego Diva na kompoennt , wyrzuc to do pliku a następnie dodaj import w tym pliku i uzyj tego komponentu}
-}
-      <div
-        style={{
-          display: "flex",
-          justifyContent: "space-around",
-          alignItems: "center",
-          alignContent: "center",
-          flexWrap: "wrap"
-        }}
-      >
+     <RamkaWrapper>
        <Ramka dane={userCounter}>Liczba wykonanych testów</Ramka>
-       <Ramka></Ramka>
-       <Ramka></Ramka>
-       <Ramka></Ramka>
-       <Ramka></Ramka>
-       <Ramka></Ramka>
-       <Ramka>Dupa2</Ramka>
-
-
-        <div
-          style={{
-            border: "3px solid black",
-            width: '350px',
-            height: '60px',
-            padding: "20px",
-            margin: "20px",
-          }}
-        >
-          <center>
-            <b>Liczba wykonanych testów</b>
-          </center>
-          <center>
-            <div
-              style={{
-                fontSize: 30,
-              }}
-            >
-              {userCounter}
-            </div>
-          </center>
-        </div>
-
-      <div
-      style={{
-        border: '3px solid black',
-        width: '350px',
-        height: '60px',
-        padding: '20px',
-        margin: '20px'
-      }}>
-        <center>
-          <strong>
-          Stosunek zarejestrowanych kont do wykonanych testów
-          </strong>
-        </center>  
-        <center>
-          <div style={{
-            fontSize: 30
-          }}>
-            X
-            </div>
-        </center>
-        </div>
-      
-
-      <div
-      style={{
-        border: '3px solid black',
-        width: '300px',
-        height: '60px',
-        padding: '20px',
-        margin: '20px'
-      }}>
-        <center>
-          <strong>
-         Liczba osób, które wysłała wiadomość
-          </strong>
-        </center>  
-        <center>
-          <div style={{
-            fontSize: 30
-          }}>
-          {userCounterWhoWroteMessages}
-            </div>
-        </center>
-        </div>
-        </div>
-
-
-        {
-        // drugi wiersz
-      }
-
-
-       
-        
-
-      {/* <ZajebisteWykresy /> */}
-    </>
+       <Ramka dane={"x"}>Stosunek zarejestrowanych kont do wykonanych testów</Ramka>
+       <Ramka dane={userCounterWhoWroteMessages}>Liczba osób, które wysłały wiadomość</Ramka>
+       <Ramka dane={skonczoneTesty}>Skończone testy</Ramka>
+        {/* <ZajebisteWykresy /> */}
+      </RamkaWrapper> 
   );
 }
 

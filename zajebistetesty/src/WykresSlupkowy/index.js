@@ -9,7 +9,6 @@ function WykresSlupkowy(props) {
   console.log('WykresSłupkowy');
   return (
     <div className="App">
-      <h1>Zajebiste Wyniki</h1>
       <h2>{props.title}</h2>
       <VictoryChart
       // motywy

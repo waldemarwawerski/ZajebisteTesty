@@ -278,92 +278,92 @@ const App = () => {
       </RamkaWrapper>
       <WykresSlupkowy
         data={data1}
-        title={"Jak rozkładały się odpowiedzi w 1 pytaniu"}
+        title={"Podczas podejmowania decyzji w projekcie najważniejsza jest:"}
       />
 
       <WykresSlupkowy
         data={data2}
-        title={"Jak rozkładały się odpowiedzi w 2 pytaniu"}
+        title={"W trakcie realizacji zadań najważniejsze, żeby:"}
       />
 
       <WykresSlupkowy
         data={data3}
-        title={"Jak rozkładały się odpowiedzi w 3 pytaniu"}
+        title={"W komunikacji w zespole:"}
       />
 
       <WykresSlupkowy
         data={data4}
-        title={"Jak rozkładały się odpowiedzi w 4 pytaniu"}
+        title={"Podczas spotkań zawodowych:"}
       />
 
       <WykresSlupkowy
         data={data5}
-        title={"Jak rozkładały się odpowiedzi w 5 pytaniu"}
+        title={"Kiedy udzielam feedbacku:"}
       />
 
       <WykresSlupkowy
         data={data6}
-        title={"Jak rozkładały się odpowiedzi w 6 pytaniu"}
+        title={"Kiedy ktoś się spóźnia:"}
       />
 
       <WykresSlupkowy
         data={data7}
-        title={"Jak rozkładały się odpowiedzi w 7 pytaniu"}
+        title={"W pracy zespołowej:"}
       />
 
       <WykresSlupkowy
         data={data8}
-        title={"Jak rozkładały się odpowiedzi w 8 pytaniu"}
+        title={"Rolą szefa jest:"}
       />
 
       <WykresSlupkowy
         data={data9}
-        title={"Jak rozkładały się odpowiedzi w 9 pytaniu"}
+        title={"Kiedy dostaję nowe zadanie:"}
       />
 
       <WykresSlupkowy
         data={data10}
-        title={"Jak rozkładały się odpowiedzi w 10 pytaniu"}
+        title={"Kiedy ktoś jest wobec mnie nieuprzejmy:"}
       />
 
       <WykresSlupkowy
         data={data11}
-        title={"Jak rozkładały się odpowiedzi w 11 pytaniu"}
+        title={"Po ukończeniu zadania większą satysfakcję sprawiają mi:"}
       />
 
       <WykresSlupkowy
         data={data12}
-        title={"Jak rozkładały się odpowiedzi w 12 pytaniu"}
+        title={"Wolę wykładowcę:"}
       />
 
       <WykresSlupkowy
         data={data13}
-        title={"Jak rozkładały się odpowiedzi w 13 pytaniu"}
+        title={"Odpoczywam najlepiej"}
       />
 
       <WykresSlupkowy
         data={data14}
-        title={"Jak rozkładały się odpowiedzi w 14 pytaniu"}
+        title={"Bardziej denerwują mnie:"}
       />
 
       <WykresSlupkowy
         data={data15}
-        title={"Jak rozkładały się odpowiedzi w 15 pytaniu"}
+        title={"Będąc w towarzystwie, zwykle:"}
       />
 
       <WykresSlupkowy
         data={data16}
-        title={"Jak rozkładały się odpowiedzi w 16 pytaniu"}
+        title={"Często żałuję, że powiedziałem:"}
       />
 
       <WykresSlupkowy
         data={data17}
-        title={"Jak rozkładały się odpowiedzi w 17 pytaniu"}
+        title={"Często podejmuję decyzje"}
       />
 
       <WykresSlupkowy
         data={data18}
-        title={"Jak rozkładały się odpowiedzi w 18 pytaniu"}
+        title={"Uważam, że racjonalna krytyka"}
       />
 
     </>

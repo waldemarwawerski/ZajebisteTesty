@@ -262,9 +262,69 @@ const App = () => {
 
   });
 
+ const daneWykresSlupkowy = [
+    {
+     data: data1, 
+     title: "Podczas podejmowania decyzji w projekcie najważniejsza jest:"
+    },
+    {
+      data: data2, 
+      title: "W trakcie realizacji zadań najważniejsze, żeby:"
+     },
+     {
+      data: data3, 
+      title: "W komunikacji w zespole:"
+     },{
+      data: data4, 
+      title: "Podczas spotkań zawodowych:"
+     },{
+      data: data5, 
+      title: "Kiedy udzielam feedbacku:"
+     },{
+      data: data6, 
+      title: "Kiedy ktoś się spóźnia:"
+     },{
+      data: data7, 
+      title: "W pracy zespołowej:"
+     },{
+      data: data8, 
+      title: "Rolą szefa jest:"
+     },{
+      data: data9, 
+      title: "Kiedy dostaję nowe zadanie:"
+     },{
+      data: data10, 
+      title: "Kiedy ktoś jest wobec mnie nieuprzejmy:"
+     },{
+      data: data11, 
+      title: "Po ukończeniu zadania większą satysfakcję sprawiają mi:"
+     },{
+      data: data12, 
+      title: "Wolę wykładowcę:"
+     },{
+      data: data13, 
+      title: "Odpoczywam najlepiej"
+     },{
+      data: data14, 
+      title: "Bardziej denerwują mnie:"
+     },{
+      data: data15, 
+      title: "Będąc w towarzystwie, zwykle:"
+     },{
+      data: data16, 
+      title: "Często żałuję, że powiedziałem:"
+     },
+     {
+      data: data17, 
+      title: "Często podejmuję decyzje:"
+     },{
+      data: data18, 
+      title: "Uważam, że racjonalna krytyka:"
+     },
+  ]
 
-
-  return (
+  // wyswietlanie
+  return(
     <>
       <RamkaWrapper>
         <Ramka dane={userCounter}>Liczba wykonanych testów</Ramka>
@@ -276,95 +336,15 @@ const App = () => {
         {/* <ZajebisteWykresy />  */}
 
       </RamkaWrapper>
-      <WykresSlupkowy
-        data={data1}
-        title={"Podczas podejmowania decyzji w projekcie najważniejsza jest:"}
-      />
-
-      <WykresSlupkowy
-        data={data2}
-        title={"W trakcie realizacji zadań najważniejsze, żeby:"}
-      />
-
-      <WykresSlupkowy
-        data={data3}
-        title={"W komunikacji w zespole:"}
-      />
-
-      <WykresSlupkowy
-        data={data4}
-        title={"Podczas spotkań zawodowych:"}
-      />
-
-      <WykresSlupkowy
-        data={data5}
-        title={"Kiedy udzielam feedbacku:"}
-      />
-
-      <WykresSlupkowy
-        data={data6}
-        title={"Kiedy ktoś się spóźnia:"}
-      />
-
-      <WykresSlupkowy
-        data={data7}
-        title={"W pracy zespołowej:"}
-      />
-
-      <WykresSlupkowy
-        data={data8}
-        title={"Rolą szefa jest:"}
-      />
-
-      <WykresSlupkowy
-        data={data9}
-        title={"Kiedy dostaję nowe zadanie:"}
-      />
-
-      <WykresSlupkowy
-        data={data10}
-        title={"Kiedy ktoś jest wobec mnie nieuprzejmy:"}
-      />
-
-      <WykresSlupkowy
-        data={data11}
-        title={"Po ukończeniu zadania większą satysfakcję sprawiają mi:"}
-      />
-
-      <WykresSlupkowy
-        data={data12}
-        title={"Wolę wykładowcę:"}
-      />
-
-      <WykresSlupkowy
-        data={data13}
-        title={"Odpoczywam najlepiej"}
-      />
-
-      <WykresSlupkowy
-        data={data14}
-        title={"Bardziej denerwują mnie:"}
-      />
-
-      <WykresSlupkowy
-        data={data15}
-        title={"Będąc w towarzystwie, zwykle:"}
-      />
-
-      <WykresSlupkowy
-        data={data16}
-        title={"Często żałuję, że powiedziałem:"}
-      />
-
-      <WykresSlupkowy
-        data={data17}
-        title={"Często podejmuję decyzje"}
-      />
-
-      <WykresSlupkowy
-        data={data18}
-        title={"Uważam, że racjonalna krytyka"}
-      />
+      {
+       daneWykresSlupkowy.map((dana)=>{
+         return( <WykresSlupkowy
+          data={dana.data}
+          title={dana.title}
+        />)
+       }) 
+      }
+     
 
     </>
   );

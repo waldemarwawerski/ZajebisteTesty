@@ -6,7 +6,6 @@ function WykresSlupkowy(props) {
 
   // " <--- Ciapki
   // < <--- dziubek
-  console.log('WykresSłupkowy');
   return (
     <div className="App">
       <h2>{props.title}</h2>

@@ -1,4 +1,4 @@
-import { useState } from "react";
+import { useState, useEffect } from "react";
 import ZajebisteWykresy from "./Pages/ZajebisteWykresy";
 import "./App.css";
 import { getData } from "./server";
@@ -29,6 +29,8 @@ const App = () => {
   const [data16, setData16] = useState();
   const [data17, setData17] = useState();
   const [data18, setData18] = useState();
+
+  useEffect(() => {
   /* Magiczny kod który pobiera dane z bazy danych */
   getData.then((dane) => {
     // Przepisuje obiekt do tablicy
@@ -96,171 +98,31 @@ const App = () => {
         ileZaznaczen(KOLKO.SZOSTE, nrPytania),
       ];
     }
-
-    setData1([
-      { day: 1, download: jakOdpowiadaliNaPytanie(1)[0] },
-      { day: 2, download: jakOdpowiadaliNaPytanie(1)[1] },
-      { day: 3, download: jakOdpowiadaliNaPytanie(1)[2] },
-      { day: 4, download: jakOdpowiadaliNaPytanie(1)[3] },
-      { day: 5, download: jakOdpowiadaliNaPytanie(1)[4] },
-      { day: 6, download: jakOdpowiadaliNaPytanie(1)[5] },
-    ]);
-
-    setData2([
-      { day: 1, download: jakOdpowiadaliNaPytanie(2)[0] },
-      { day: 2, download: jakOdpowiadaliNaPytanie(2)[1] },
-      { day: 3, download: jakOdpowiadaliNaPytanie(2)[2] },
-      { day: 4, download: jakOdpowiadaliNaPytanie(2)[3] },
-      { day: 5, download: jakOdpowiadaliNaPytanie(2)[4] },
-      { day: 6, download: jakOdpowiadaliNaPytanie(2)[5] },
-    ]);
-
-    setData3([
-      { day: 1, download: jakOdpowiadaliNaPytanie(3)[0] },
-      { day: 2, download: jakOdpowiadaliNaPytanie(3)[1] },
-      { day: 3, download: jakOdpowiadaliNaPytanie(3)[2] },
-      { day: 4, download: jakOdpowiadaliNaPytanie(3)[3] },
-      { day: 5, download: jakOdpowiadaliNaPytanie(3)[4] },
-      { day: 6, download: jakOdpowiadaliNaPytanie(3)[5] },
-    ]);
-
-    setData4([
-      { day: 1, download: jakOdpowiadaliNaPytanie(4)[0] },
-      { day: 2, download: jakOdpowiadaliNaPytanie(4)[1] },
-      { day: 3, download: jakOdpowiadaliNaPytanie(4)[2] },
-      { day: 4, download: jakOdpowiadaliNaPytanie(4)[3] },
-      { day: 5, download: jakOdpowiadaliNaPytanie(4)[4] },
-      { day: 6, download: jakOdpowiadaliNaPytanie(4)[5] },
-    ]);
-
-    setData5([
-      { day: 1, download: jakOdpowiadaliNaPytanie(5)[0] },
-      { day: 2, download: jakOdpowiadaliNaPytanie(5)[1] },
-      { day: 3, download: jakOdpowiadaliNaPytanie(5)[2] },
-      { day: 4, download: jakOdpowiadaliNaPytanie(5)[3] },
-      { day: 5, download: jakOdpowiadaliNaPytanie(5)[4] },
-      { day: 6, download: jakOdpowiadaliNaPytanie(5)[5] },
-    ]);
-
-    setData6([
-      { day: 1, download: jakOdpowiadaliNaPytanie(6)[0] },
-      { day: 2, download: jakOdpowiadaliNaPytanie(6)[1] },
-      { day: 3, download: jakOdpowiadaliNaPytanie(6)[2] },
-      { day: 4, download: jakOdpowiadaliNaPytanie(6)[3] },
-      { day: 5, download: jakOdpowiadaliNaPytanie(6)[4] },
-      { day: 6, download: jakOdpowiadaliNaPytanie(6)[5] },
-    ]);
-
-    setData7([
-      { day: 1, download: jakOdpowiadaliNaPytanie(7)[0] },
-      { day: 2, download: jakOdpowiadaliNaPytanie(7)[1] },
-      { day: 3, download: jakOdpowiadaliNaPytanie(7)[2] },
-      { day: 4, download: jakOdpowiadaliNaPytanie(7)[3] },
-      { day: 5, download: jakOdpowiadaliNaPytanie(7)[4] },
-      { day: 6, download: jakOdpowiadaliNaPytanie(7)[5] },
-    ]);
-
-    setData8([
-      { day: 1, download: jakOdpowiadaliNaPytanie(8)[0] },
-      { day: 2, download: jakOdpowiadaliNaPytanie(8)[1] },
-      { day: 3, download: jakOdpowiadaliNaPytanie(8)[2] },
-      { day: 4, download: jakOdpowiadaliNaPytanie(8)[3] },
-      { day: 5, download: jakOdpowiadaliNaPytanie(8)[4] },
-      { day: 6, download: jakOdpowiadaliNaPytanie(8)[5] },
-    ]);
-
-    setData9([
-      { day: 1, download: jakOdpowiadaliNaPytanie(9)[0] },
-      { day: 2, download: jakOdpowiadaliNaPytanie(9)[1] },
-      { day: 3, download: jakOdpowiadaliNaPytanie(9)[2] },
-      { day: 4, download: jakOdpowiadaliNaPytanie(9)[3] },
-      { day: 5, download: jakOdpowiadaliNaPytanie(9)[4] },
-      { day: 6, download: jakOdpowiadaliNaPytanie(9)[5] },
-    ]);
-
-    setData10([
-      { day: 1, download: jakOdpowiadaliNaPytanie(10)[0] },
-      { day: 2, download: jakOdpowiadaliNaPytanie(10)[1] },
-      { day: 3, download: jakOdpowiadaliNaPytanie(10)[2] },
-      { day: 4, download: jakOdpowiadaliNaPytanie(10)[3] },
-      { day: 5, download: jakOdpowiadaliNaPytanie(10)[4] },
-      { day: 6, download: jakOdpowiadaliNaPytanie(10)[5] },
-    ]);
-
-    setData11([
-      { day: 1, download: jakOdpowiadaliNaPytanie(11)[0] },
-      { day: 2, download: jakOdpowiadaliNaPytanie(11)[1] },
-      { day: 3, download: jakOdpowiadaliNaPytanie(11)[2] },
-      { day: 4, download: jakOdpowiadaliNaPytanie(11)[3] },
-      { day: 5, download: jakOdpowiadaliNaPytanie(11)[4] },
-      { day: 6, download: jakOdpowiadaliNaPytanie(11)[5] },
-    ]);
-
-    setData12([
-      { day: 1, download: jakOdpowiadaliNaPytanie(12)[0] },
-      { day: 2, download: jakOdpowiadaliNaPytanie(12)[1] },
-      { day: 3, download: jakOdpowiadaliNaPytanie(12)[2] },
-      { day: 4, download: jakOdpowiadaliNaPytanie(12)[3] },
-      { day: 5, download: jakOdpowiadaliNaPytanie(12)[4] },
-      { day: 6, download: jakOdpowiadaliNaPytanie(12)[5] },
-    ]);
-
-    setData13([
-      { day: 1, download: jakOdpowiadaliNaPytanie(13)[0] },
-      { day: 2, download: jakOdpowiadaliNaPytanie(13)[1] },
-      { day: 3, download: jakOdpowiadaliNaPytanie(13)[2] },
-      { day: 4, download: jakOdpowiadaliNaPytanie(13)[3] },
-      { day: 5, download: jakOdpowiadaliNaPytanie(13)[4] },
-      { day: 6, download: jakOdpowiadaliNaPytanie(13)[5] },
-    ]);
-
-    setData14([
-      { day: 1, download: jakOdpowiadaliNaPytanie(14)[0] },
-      { day: 2, download: jakOdpowiadaliNaPytanie(14)[1] },
-      { day: 3, download: jakOdpowiadaliNaPytanie(14)[2] },
-      { day: 4, download: jakOdpowiadaliNaPytanie(14)[3] },
-      { day: 5, download: jakOdpowiadaliNaPytanie(14)[4] },
-      { day: 6, download: jakOdpowiadaliNaPytanie(14)[5] },
-    ]);
-
-    setData15([
-      { day: 1, download: jakOdpowiadaliNaPytanie(15)[0] },
-      { day: 2, download: jakOdpowiadaliNaPytanie(15)[1] },
-      { day: 3, download: jakOdpowiadaliNaPytanie(15)[2] },
-      { day: 4, download: jakOdpowiadaliNaPytanie(15)[3] },
-      { day: 5, download: jakOdpowiadaliNaPytanie(15)[4] },
-      { day: 6, download: jakOdpowiadaliNaPytanie(15)[5] },
-    ]);
-
-    setData16([
-      { day: "", download: jakOdpowiadaliNaPytanie(16)[0] },
-      { day: 2, download: jakOdpowiadaliNaPytanie(16)[1] },
-      { day: 3, download: jakOdpowiadaliNaPytanie(16)[2] },
-      { day: 4, download: jakOdpowiadaliNaPytanie(16)[3] },
-      { day: 5, download: jakOdpowiadaliNaPytanie(16)[4] },
-      { day: 6, download: jakOdpowiadaliNaPytanie(16)[5] },
-    ]);
-
-    setData17([
-      { day: "", download: jakOdpowiadaliNaPytanie(17)[0] },
-      { day: 2, download: jakOdpowiadaliNaPytanie(17)[1] },
-      { day: 3, download: jakOdpowiadaliNaPytanie(17)[2] },
-      { day: 4, download: jakOdpowiadaliNaPytanie(17)[3] },
-      { day: 5, download: jakOdpowiadaliNaPytanie(17)[4] },
-      { day: 6, download: jakOdpowiadaliNaPytanie(17)[5] },
-    ]);
-
-    setData18([
-      { day: "", download: jakOdpowiadaliNaPytanie(18)[0] },
-      { day: 2, download: jakOdpowiadaliNaPytanie(18)[1] },
-      { day: 3, download: jakOdpowiadaliNaPytanie(18)[2] },
-      { day: 4, download: jakOdpowiadaliNaPytanie(18)[3] },
-      { day: 5, download: jakOdpowiadaliNaPytanie(18)[4] },
-      { day: 6, download: jakOdpowiadaliNaPytanie(18)[5] },
-    ]);
+  
+    const allFunctionSetData = [null, setData1, setData2, setData3, setData4, setData5, setData6, setData7, setData8, setData9, setData10, setData11, setData12, setData13, setData14, setData15, setData16, setData17, setData18];
+    for(let i=1; i<=18; i++)
+    {
+      allFunctionSetData[i]([
+        { day: 1, download: jakOdpowiadaliNaPytanie(i)[0] },
+        { day: 2, download: jakOdpowiadaliNaPytanie(i)[1] },
+        { day: 3, download: jakOdpowiadaliNaPytanie(i)[2] },
+        { day: 4, download: jakOdpowiadaliNaPytanie(i)[3] },
+        { day: 5, download: jakOdpowiadaliNaPytanie(i)[4] },
+        { day: 6, download: jakOdpowiadaliNaPytanie(i)[5] },
+      ]);
+    }
 
 
-  });
+    // tutaj kod z for
+
+
+
+
+
+
+
+  })
+}, []);
 
  const daneWykresSlupkowy = [
     {
@@ -323,6 +185,15 @@ const App = () => {
      },
   ]
 
+  // Zadanie domowe 1 z Map
+  // Stwórz tablice, przypisz do niej nazwy owocow(dziesieciu cystrusow) i wysietl te owoce na stronie
+
+  // Zadanie domowe 2 z for
+  // na konsoli wyświetl wszystkie liczby pazyste od 1 do miliona. wzor => (i*2) gdzie i to kolejna wartosc w petli
+
+
+
+
   // wyswietlanie
   return(
     <>
@@ -337,6 +208,8 @@ const App = () => {
 
       </RamkaWrapper>
       {
+       // To jest funkcja map, która bierze tablicę np: [1,2,3,4,5].map((liczna)=>liczba)
+       // a następnie przechodzi po kazdym elemecie tablicy i wyświetla jej wartość 
        daneWykresSlupkowy.map((dana)=>{
          return( <WykresSlupkowy
           data={dana.data}
@@ -344,7 +217,25 @@ const App = () => {
         />)
        }) 
       }
-     
+
+     {
+       // tutaj kod z map
+       
+
+
+
+
+
+
+
+
+
+
+
+
+
+       
+     }
 
     </>
   );

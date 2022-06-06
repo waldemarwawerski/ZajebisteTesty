@@ -187,9 +187,11 @@ const App = () => {
 
   // Zadanie domowe 1 z Map
   // Stwórz tablice, przypisz do niej nazwy owocow(dziesieciu cystrusow) i wysietl te owoce na stronie
+  // https://www.youtube.com/watch?v=G8WfTsZTAPE
 
   // Zadanie domowe 2 z for
   // na konsoli wyświetl wszystkie liczby pazyste od 1 do miliona. wzor => (i*2) gdzie i to kolejna wartosc w petli
+  // https://www.youtube.com/watch?v=j3EqSYZcdX8
 
 
 

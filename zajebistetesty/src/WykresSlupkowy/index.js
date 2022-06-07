@@ -7,8 +7,8 @@ function WykresSlupkowy(props) {
   // " <--- Ciapki
   // < <--- dziubek
   return (
-    <div className="App">
-      <h2>{props.title}</h2>
+    <div className="App" style={{...props.style}}>
+      
       <VictoryChart
       // motywy
       // {VictoryTheme.material} lub {VictoryTheme.grayscale}

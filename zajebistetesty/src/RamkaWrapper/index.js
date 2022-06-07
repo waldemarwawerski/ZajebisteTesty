@@ -1,4 +1,4 @@
-function RamkaWrapper({dane, children}) {
+function RamkaWrapper({dane, children, style}) {
     return(
         <div
         style={{
@@ -6,7 +6,8 @@ function RamkaWrapper({dane, children}) {
           justifyContent: "space-around",
           alignItems: "center",
           alignContent: "center",
-          flexWrap: "wrap"
+          flexWrap: "wrap",
+          ...style
         }}
       >
        {children}

@@ -5,8 +5,10 @@ function Ramka({dane, children}) {
           border: "3px solid black",
           width: '350px',
           height: '60px',
-          padding: "20px",
-          margin: "20px",
+          padding: "5px",
+          margin: "5px",
+          marginTop: "20px",
+          marginBottom: "20px",
         }}
       >
         <center>

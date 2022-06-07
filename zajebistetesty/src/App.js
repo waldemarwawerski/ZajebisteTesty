@@ -151,7 +151,7 @@ const COLORS_BACKGROUND = {
   const daneWykresSlupkowy = [
     {
       data: data1,
-      title: "Podczas podejmowania decyzji w projekcie najważniejsza jest:",
+      title: "1. Podczas podejmowania decyzji w projekcie najważniejsza jest:",
       left: 'koncentracja na celu',
       right: 'wykreowanie niepowtarzalnego pomysłu', 
       colorLeft: COLORS.RED, 
@@ -159,125 +159,125 @@ const COLORS_BACKGROUND = {
     },
     {
       data: data2,
-      title: "W trakcie realizacji zadań najważniejsze, żeby:",
-      left: '',
-      right: '', 
-      colorLeft: '', 
-      colorRight: ''
+      title: "2. W trakcie realizacji zadań najważniejsze, żeby:",
+      left: 'pracować w przemyślany sposób',
+      right: 'pomagać najsłabszym pracownikom', 
+      colorLeft: COLORS.BLUE, 
+      colorRight: COLORS.GREEN
     },
     {
       data: data3,
-      title: "W komunikacji w zespole:",
-      left: '',
-      right: '', 
-      colorLeft: '', 
-      colorRight: ''
+      title: "3. W komunikacji w zespole:",
+      left: 'być nieco na luzie, żartować',
+      right: 'być nieco na luzie, żartować', 
+      colorLeft: COLORS.YELLOW, 
+      colorRight: COLORS.GREEN
     }, {
       data: data4,
-      title: "Podczas spotkań zawodowych:",
-      left: '',
-      right: '', 
-      colorLeft: '', 
-      colorRight: ''
+      title: "4. Podczas spotkań zawodowych:",
+      left: 'chcę dobrze przeanalizować sytuację',
+      right: 'buduję relację z rozmówcami, potem biznes', 
+      colorLeft: COLORS.BLUE, 
+      colorRight: COLORS.YELLOW
     }, {
       data: data5,
-      title: "Kiedy udzielam feedbacku:",
-      left: '',
-      right: '', 
-      colorLeft: '', 
-      colorRight: ''
+      title: "5. Kiedy udzielam feedbacku:",
+      left: 'dbam o to aby nikogo nie dotknąć',
+      right: 'staram się zostać precyzyjnie zrozumianym', 
+      colorLeft: COLORS.GREEN, 
+      colorRight: COLORS.BLUE
     }, {
       data: data6,
-      title: "Kiedy ktoś się spóźnia:",
-      left: '',
-      right: '', 
-      colorLeft: '', 
-      colorRight: ''
+      title: "6. Kiedy ktoś się spóźnia:",
+      left: 'spokojnie czekam na wyjaśnienie',
+      right: 'złoszczę się - nie toleruję spóźnień', 
+      colorLeft: COLORS.BLUE, 
+      colorRight: COLORS.RED
     }, {
       data: data7,
-      title: "W pracy zespołowej:",
-      left: '',
-      right: '', 
-      colorLeft: '', 
-      colorRight: ''
+      title: "7. W pracy zespołowej:",
+      left: 'skuteczność',
+      right: 'realizacja strategii', 
+      colorLeft: COLORS.RED, 
+      colorRight: COLORS.BLUE
     }, {
       data: data8,
-      title: "Rolą szefa jest:",
-      left: '',
-      right: '', 
-      colorLeft: '', 
-      colorRight: ''
+      title: "8. Rolą szefa jest:",
+      left: 'realizacja celu - za wszelką cenę',
+      right: 'ochrona członków zespołu', 
+      colorLeft: COLORS.RED, 
+      colorRight: COLORS.GREEN
     }, {
       data: data9,
-      title: "Kiedy dostaję nowe zadanie:",
-      left: '',
-      right: '', 
-      colorLeft: '', 
-      colorRight: ''
+      title: "9. Kiedy dostaję nowe zadanie:",
+      left: 'dokładnie je planuje',
+      right: 'jestem podekscytowany jak nową przygodą', 
+      colorLeft: COLORS.BLUE, 
+      colorRight: COLORS.YELLOW
     }, {
       data: data10,
-      title: "Kiedy ktoś jest wobec mnie nieuprzejmy:",
-      left: '',
-      right: '', 
-      colorLeft: '', 
-      colorRight: ''
+      title: "10. Kiedy ktoś jest wobec mnie nieuprzejmy:",
+      left: 'mówię wprost,co o tym myślę',
+      right: 'reaguję w kontrolowany sposób', 
+      colorLeft: COLORS.RED, 
+      colorRight: COLORS.BLUE
     }, {
       data: data11,
-      title: "Po ukończeniu zadania większą satysfakcję sprawiają mi:",
-      left: '',
-      right: '', 
-      colorLeft: '', 
-      colorRight: ''
+      title: "11. Po ukończeniu zadania większą satysfakcję sprawiają mi:",
+      left: 'przeżyte wspólnie z innymi doznania i doświadczenia',
+      right: 'fakt, że mam fakt, że kolejne zadanie mam już za sobą', 
+      colorLeft: COLORS.YELLOW, 
+      colorRight: COLORS.RED
     }, {
       data: data12,
-      title: "Wolę wykładowcę:",
-      left: '',
-      right: '', 
-      colorLeft: '', 
-      colorRight: ''
+      title: "12. Wolę wykładowcę:",
+      left: 'oschłego, ale logicznego',
+      right: 'sympatycznego, ale roztargnionego', 
+      colorLeft: COLORS.BLUE, 
+      colorRight: COLORS.GREEN
     }, {
       data: data13,
-      title: "Odpoczywam najlepiej",
-      left: '',
-      right: '', 
-      colorLeft: '', 
-      colorRight: ''
+      title: "13. Odpoczywam najlepiej",
+      left: 'w spokoju, samotnie lub w małym gronie',
+      right: 'aktywnie, bijąc kolejny rekord lub biorąc udział w zawodach', 
+      colorLeft: COLORS.GREEN, 
+      colorRight: COLORS.RED
     }, {
       data: data14,
-      title: "Bardziej denerwują mnie:",
-      left: '',
-      right: '', 
-      colorLeft: '', 
-      colorRight: ''
+      title: "14. Bardziej denerwują mnie osoby:",
+      left: 'dla których liczy się tylko tylko “tu i teraz”',
+      right: 'które wszystko chcą ująć w procedury', 
+      colorLeft: COLORS.GREEN, 
+      colorRight: COLORS.YELLOW
     }, {
       data: data15,
-      title: "Będąc w towarzystwie, zwykle:",
-      left: '',
-      right: '', 
-      colorLeft: '', 
-      colorRight: ''
+      title: "15, Będąc w towarzystwie, zwykle:",
+      left: 'mówię więcej niż pozostali',
+      right: 'do rzeczy, zwięźle i na temat', 
+      colorLeft: COLORS.YELLOW, 
+      colorRight: COLORS.RED
     }, {
       data: data16,
-      title: "Często żałuję, że powiedziałem:",
-      left: '',
-      right: '', 
-      colorLeft: '', 
-      colorRight: ''
+      title: "16, Często żałuję, że powiedziałem:",
+      left: 'za mało',
+      right: 'za dużo', 
+      colorLeft: COLORS.GREEN, 
+      colorRight: COLORS.YELLOW
     },
     {
       data: data17,
-      title: "Często podejmuję decyzje:",
-      left: '',
-      right: '', 
-      colorLeft: '', 
-      colorRight: ''
+      title: "17. Często podejmuję decyzje:",
+      left: 'za szybko',
+      right: 'za późno', 
+      colorLeft: COLORS.YELLOW, 
+      colorRight: COLORS.BLUE
     }, {
       data: data18,
-      title: "Uważam, że racjonalna krytyka:",
-      left: '',
-      right: '', 
-      colorLeft: '', 
-      colorRight: ''
+      title: "18. Uważam, że racjonalna krytyka:",
+      left: 'jest pożądana i skuteczna',
+      right: 'często rani i przynosi wiele szkody', 
+      colorLeft: COLORS.RED, 
+      colorRight: COLORS.GREEN
     },
   ]
 

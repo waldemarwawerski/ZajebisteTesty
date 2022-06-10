@@ -171,7 +171,7 @@ const COLORS_BACKGROUND = {
       data: data3,
       title: "3. W komunikacji w zespole:",
       left: 'być nieco na luzie, żartować',
-      right: 'być nieco na luzie, żartować', 
+      right: 'dbać, aby nikogo nie urazić', 
       colorLeft: COLORS.YELLOW, 
       colorRight: COLORS.GREEN
     }, {

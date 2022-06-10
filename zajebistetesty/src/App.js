@@ -85,8 +85,10 @@ const App = () => {
         const wszystkieOdpowiedziNaPierwszePytanie = answers.map(test => test.filter((answer) => answer.question === nrPytania));
         const wszystkieTestyAleOdpowiedziTylkoNaPytaniePierwszegZero = wszystkieOdpowiedziNaPierwszePytanie.map(test => test.filter((answer => answer.value === kolko)));
         const pokazTylkoTeKtoreMajaWartosc = wszystkieTestyAleOdpowiedziTylkoNaPytaniePierwszegZero.filter(test => test[0]);
-        const ileByloOdpowiedzi = pokazTylkoTeKtoreMajaWartosc.length
-        return ileByloOdpowiedzi;
+        const ileByloOdpowiedzi = pokazTylkoTeKtoreMajaWartosc.length;
+        const sumaZeWszystkichOdpowiedzi = wszystkieOdpowiedziNaPierwszePytanie.length;
+
+        return Math.round((ileByloOdpowiedzi/sumaZeWszystkichOdpowiedzi)*100,2);
       }
       function jakOdpowiadaliNaPytanie(nrPytania) {
         return [
@@ -143,10 +145,10 @@ const COLORS = {
 }
 
 const COLORS_BACKGROUND = {
-  RED: 'red', 
-  BLUE: 'blue', 
-  YELLOW: 'yellow',
-  GREEN: 'green'
+  RED: '#FF9999', 
+  BLUE: '#99D1FF', 
+  YELLOW: '#FFEB99',
+  GREEN: '#9BED99'
 }
   const daneWykresSlupkowy = [
     {
@@ -327,23 +329,35 @@ const COLORS_BACKGROUND = {
                 marginTop: "20px",
                 marginBottom: "20px",
                 margin: "5px",
-                height: 600
+                height: 580
               }}>
-                <RamkaWrapper style={{backgroundColor: getBackgroundColor}}>
+                <RamkaWrapper style={{backgroundColor: COLORS_BACKGROUND[getBackgroundColor]}}>
                   <center><div style={{ width: 550, height: 100 }}><h2>{dana.title}</h2></div></center>
                 </RamkaWrapper>
                 <WykresSlupkowy
-                // style={{backgroundColor: getBackgroundColor}}
+                  style={{height: 400}}
                   data={dana.data}
                 />
-                <RamkaWrapper style={{alignItems: 'flex-start', backgroundColor: getBackgroundColor}}>
-                  <div style={{width: "50%", minHeight: "60px", backgroundColor: COLORS_BACKGROUND[dana.colorLeft]}}>
+                <RamkaWrapper style={{alignItems: 'center', backgroundColor: getBackgroundColor}}>
+                  <div style={
+                    {
+                      width: "275px", 
+                      minHeight: "50px", 
+                      backgroundColor: COLORS_BACKGROUND[dana.colorLeft],
+                      paddingTop: 10
+                      }
+                    }>
                     <center>
                       <b>{dana.left}</b>
                     </center>
                   </div>
                   
-                  <div style={{width: "50%", minHeight: "60px", backgroundColor: COLORS_BACKGROUND[dana.colorRight]}}>
+                  <div style={{
+                    width: "275px", 
+                    minHeight: "50px", 
+                    paddingTop: 10,
+                    backgroundColor: COLORS_BACKGROUND[dana.colorRight]
+                  }}>
                     <center>
                       <b>{dana.right}</b>
                     </center>

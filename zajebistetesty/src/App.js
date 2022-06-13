@@ -3,9 +3,10 @@ import ZajebisteWykresy from "./Pages/ZajebisteWykresy";
 import "./App.css";
 import { getData } from "./server";
 import Ramka from "./Ramka";
-import Telefon from './Chiny/Telefon';
 import RamkaWrapper from "./RamkaWrapper";
 import WykresSlupkowy from './WykresSlupkowy';
+import WykresKołowyKolory from "./WykresKołowyKolory";
+import questions from "./questions";
 
 const App = () => {
   const [userCounter, setUserCounter] = useState();
@@ -29,6 +30,8 @@ const App = () => {
   const [data16, setData16] = useState();
   const [data17, setData17] = useState();
   const [data18, setData18] = useState();
+
+  const [pieChartData, setPieChartData] = useState({ R: 0, B: 0, G: 0, Y: 0 });
 
   useEffect(() => {
     /* Magiczny kod który pobiera dane z bazy danych */
@@ -128,11 +131,30 @@ const App = () => {
         console.log(i * 2)
       }
 
+      const result = { R: 0, B: 0, G: 0, Y: 0 };
+      const obliczKolor = (a) => a.map((o) => {
+        result[questions[o.question - 1].colors[0]] =
+          result[questions[o.question - 1].colors[0]] + (100 - o.value);
+        result[questions[o.question - 1].colors[1]] =
+          result[questions[o.question - 1].colors[1]] + o.value;
+      });
+      obliczKolor(answers[25]);
+
+      // const obliczKolor = () =>{ return 'test'}
+      console.log('sss', answers);
+      console.log('>>>', result);
+      setPieChartData(result);
+
+      // 1. Oblicz kolory jednej osoby
+      // 2. Oblicz kolory dla wszystkich osób
+      // 3. wyciagnij kolor dominujący dla jednej osoby
+      // 4. wyciągnij kolor dominujący dla wszystkich osób
+      // 5. zgrupuj kolory dominujące dla wszyskich osób.
+      // 6. wyświetl je na wykresie. 
 
 
     })
   }, []);
-  var result = document.getElementById("result");
 
   var tab = new Array("pomarańcze", "cytryny", "banany", "limonki", "melony", "arbuzy")
 
@@ -301,6 +323,13 @@ const COLORS_BACKGROUND = {
         {/* <ZajebisteWykresy />  */}
 
       </RamkaWrapper>
+
+      <RamkaWrapper>
+        <WykresKołowyKolory 
+          colorsBackground={COLORS_BACKGROUND}
+          result={pieChartData} />
+      </RamkaWrapper>
+           
       <RamkaWrapper>
         {
           // To jest funkcja map, która bierze tablicę np: [1,2,3,4,5].map((liczna)=>liczba)

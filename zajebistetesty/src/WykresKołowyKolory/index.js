@@ -1,0 +1,32 @@
+
+import { VictoryPie } from "victory"
+
+function WykresKołowyKolor(props) {
+    console.log('zzz',props);
+  return (
+    <VictoryPie
+    
+        data={[
+            {x: "czerwony", y: props.result.R},
+            {x: "żółty", y: props.result.Y},
+            {x: "zielony", y: props.result.G},
+            {x: "niebieski", y: props.result.B},
+        ]}
+
+        animate={{
+            duration: 2000
+        }}
+
+        colorScale={
+            [
+                props.colorsBackground.RED, 
+                props.colorsBackground.YELLOW,
+                props.colorsBackground.GREEN, 
+                props.colorsBackground.BLUE,
+            ]
+        }
+    />
+  );
+}
+
+export default WykresKołowyKolor;

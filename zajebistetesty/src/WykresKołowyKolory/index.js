@@ -13,6 +13,8 @@ function WykresKołowyKolor(props) {
             {x: "niebieski", y: props.result.B},
         ]}
 
+        labels={({ datum }) => `${Math.round((datum.y/(props.result.R+props.result.Y+props.result.G+props.result.B))*100,2)}%`}
+
         animate={{
             duration: 2000
         }}

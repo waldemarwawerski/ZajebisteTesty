@@ -7,11 +7,13 @@ import RamkaWrapper from "./RamkaWrapper";
 import WykresSlupkowy from './WykresSlupkowy';
 import WykresKołowyKolory from "./WykresKołowyKolory";
 import questions from "./questions";
+import predictColor from './predictColor';
 
 const App = () => {
   const [userCounter, setUserCounter] = useState();
   const [userCounterWhoWroteMessages, setUserCounterWhoWroteMessages] = useState();
   const [skonczoneTesty, setSkonczoneTesty] = useState();
+  const [getSkonczoneTesty, setGetSkonczoneTesty] = useState();
   const [data1, setData1] = useState();
   const [data2, setData2] = useState();
   const [data3, setData3] = useState();
@@ -45,6 +47,7 @@ const App = () => {
 
       // testy ktore sa skończone
       const testFinished = answers.filter((test) => test.length >= 17);
+      setGetSkonczoneTesty(testFinished);
       // console.log('odpowiedzi', answers);
       setSkonczoneTesty(testFinished.length);
 
@@ -128,22 +131,39 @@ const App = () => {
       // To jest pętla gdzie i = 1 to wartość początkowa, i<= 18 do jakiej wartośći pętla for ma działać, i++ co jaką wartość ma skakać
       for (let i = 1; i <= 500; i++) {
         // tutaj wyswietlasz na konsoli
-        console.log(i * 2)
+        // console.log(i * 2)
       }
 
-      const result = { R: 0, B: 0, G: 0, Y: 0 };
-      const obliczKolor = (a) => a.map((o) => {
-        result[questions[o.question - 1].colors[0]] =
-          result[questions[o.question - 1].colors[0]] + (100 - o.value);
-        result[questions[o.question - 1].colors[1]] =
-          result[questions[o.question - 1].colors[1]] + o.value;
-      });
-      obliczKolor(answers[25]);
+      const calculateOne = (i) => {
+       
+        const result = { R: 0, B: 0, G: 0, Y: 0 };
+        const obliczKolor = (a) => Array.isArray(a) && a.map((o) => {
+          result[questions[o.question - 1].colors[0]] = result[questions[o.question - 1].colors[0]] + (100 - o.value);
+          result[questions[o.question - 1].colors[1]] = result[questions[o.question - 1].colors[1]] + o.value;
+        });
+        obliczKolor(answers[i]);
+        return result;
+      }
 
+
+      let all = [];
+      for (let i = 1; i < answers.length; i++) {
+        // tutaj wyswietlasz na konsoli
+        const x  = calculateOne(i);
+        all.push(predictColor(x['R'], x['B'], x['G'], x['Y']));
+      }
+
+      const counts = {};
+
+      all.forEach(function (x) { counts[x] = (counts[x] || 0) + 1; });
+      console.log(counts)
+      console.log(all);
+      setPieChartData({ R: counts[4], B: counts[0], G: counts[12], Y: counts[8] });
+      console.log(pieChartData);
       // const obliczKolor = () =>{ return 'test'}
-      console.log('sss', answers);
-      console.log('>>>', result);
-      setPieChartData(result);
+      // console.log('sss', answers);
+     
+      // setPieChartData(result);
 
       // 1. Oblicz kolory jednej osoby
       // 2. Oblicz kolory dla wszystkich osób
@@ -313,7 +333,7 @@ const COLORS_BACKGROUND = {
     <>
       <RamkaWrapper>
         <Ramka dane={userCounter}>Liczba wykonanych testów</Ramka>
-        <Ramka dane={"x"}>Stosunek zarejestrowanych kont do wykonanych testów</Ramka>
+        {/* <Ramka dane={"x"}>Stosunek zarejestrowanych kont do wykonanych testów</Ramka> */}
         <Ramka dane={userCounterWhoWroteMessages}>Liczba osób, które wysłały wiadomość</Ramka>
         <Ramka dane={skonczoneTesty}>Skończone testy</Ramka>
 
@@ -325,9 +345,12 @@ const COLORS_BACKGROUND = {
       </RamkaWrapper>
 
       <RamkaWrapper>
-        <WykresKołowyKolory 
+        <div style={{width: 400}}>
+          <h3>Rozkład dominujących stylów</h3>
+          <WykresKołowyKolory 
           colorsBackground={COLORS_BACKGROUND}
           result={pieChartData} />
+          </div>
       </RamkaWrapper>
            
       <RamkaWrapper>
@@ -336,7 +359,7 @@ const COLORS_BACKGROUND = {
           // a następnie przechodzi po kazdym elemecie tablicy i wyświetla jej wartość 
           daneWykresSlupkowy.map((dana) => 
           {
-          console.log('dane dla jednego wykresu ', dana);
+          // console.log('dane dla jednego wykresu ', dana);
           if(dana.data)
           {
             
@@ -349,7 +372,7 @@ const COLORS_BACKGROUND = {
 
            const getBackgroundColor = backgroundColorBox ? backgroundColorBox : 'pink';
 
-            backgroundColorBox && console.log('xxxx', backgroundColorBox)
+            // backgroundColorBox && console.log('xxxx', backgroundColorBox)
 
             return (
               <div style={{

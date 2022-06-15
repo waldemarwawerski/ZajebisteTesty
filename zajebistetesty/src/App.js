@@ -5,9 +5,12 @@ import { getData } from "./server";
 import Ramka from "./Ramka";
 import RamkaWrapper from "./RamkaWrapper";
 import WykresSlupkowy from './WykresSlupkowy';
+import WykresSlupkowyCzas from './WykresSlupkowyCzas';
 import WykresKołowyKolory from "./WykresKołowyKolory";
 import questions from "./questions";
 import predictColor from './predictColor';
+import { result } from "lodash";
+import getTime from './helpers/getTime';
 
 const App = () => {
   const [userCounter, setUserCounter] = useState();
@@ -32,6 +35,8 @@ const App = () => {
   const [data16, setData16] = useState();
   const [data17, setData17] = useState();
   const [data18, setData18] = useState();
+
+  const [czasOdpowiedzi, setCzasOdpowiedzi] = useState();
 
   const [pieChartData, setPieChartData] = useState({ R: 0, B: 0, G: 0, Y: 0 });
 
@@ -119,13 +124,15 @@ const App = () => {
         ]);
       }
 
+      const czasyOdpowiedziNaPierwszePytanie = [];
+      // Czasy odpowiedzi na pierwsze pytania
+      for(let i = 1; i < answers.length; i++) {
+        czasyOdpowiedziNaPierwszePytanie.push(getTime(answers[i][0]));
+      }
 
-      // tutaj kod z for
-      // Zadanie domowe 2 z for
-      // na konsoli wyświetl wszystkie liczby pazyste od 1 do miliona. wzor => (i*2) gdzie i to kolejna wartosc w petli
-      // https://www.youtube.com/watch?v=j3EqSYZcdX8
+      setCzasOdpowiedzi(czasyOdpowiedziNaPierwszePytanie);
 
-
+     
 
 
       // To jest pętla gdzie i = 1 to wartość początkowa, i<= 18 do jakiej wartośći pętla for ma działać, i++ co jaką wartość ma skakać
@@ -351,6 +358,11 @@ const COLORS_BACKGROUND = {
           colorsBackground={COLORS_BACKGROUND}
           result={pieChartData} />
           </div>
+
+          <WykresSlupkowyCzas
+                  style={{height: 400}}
+                  data={czasOdpowiedzi}
+                />
       </RamkaWrapper>
            
       <RamkaWrapper>

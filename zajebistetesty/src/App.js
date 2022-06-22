@@ -125,13 +125,21 @@ const App = () => {
       }
 
       const czasyOdpowiedziNaPierwszePytanie = [];
+
+      const czasyOdpowiedziNaWszystkiePytania = []
+
       // Czasy odpowiedzi na pierwsze pytania
-      for(let i = 1; i < answers.length; i++) {
-        czasyOdpowiedziNaPierwszePytanie.push(getTime(answers[i][0]));
+
+      console.log('odpowiedzi', answers);
+      for(let i = 0; i < answers.length; i++) {
+        czasyOdpowiedziNaWszystkiePytania.push(getTime(answers[i][0]));
       }
 
-      setCzasOdpowiedzi(czasyOdpowiedziNaPierwszePytanie);
-
+      console.log('czas opowiedzi na wszystkie pytania', czasyOdpowiedziNaWszystkiePytania)
+      setCzasOdpowiedzi(czasyOdpowiedziNaWszystkiePytania);
+      
+      const sumaCzasow = czasyOdpowiedziNaWszystkiePytania.reduce((previousValue, currentValue)=>previousValue+currentValue);
+      console.log('średnia sumaCzasow', sumaCzasow/czasyOdpowiedziNaWszystkiePytania.length);
      
 
 
@@ -163,10 +171,10 @@ const App = () => {
       const counts = {};
 
       all.forEach(function (x) { counts[x] = (counts[x] || 0) + 1; });
-      console.log(counts)
-      console.log(all);
+      // console.log(counts)
+      // console.log(all);
       setPieChartData({ R: counts[4], B: counts[0], G: counts[12], Y: counts[8] });
-      console.log(pieChartData);
+      // console.log(pieChartData);
       // const obliczKolor = () =>{ return 'test'}
       // console.log('sss', answers);
      
@@ -331,8 +339,6 @@ const COLORS_BACKGROUND = {
       colorRight: COLORS.GREEN
     },
   ]
-
-
 
 
   // wyswietlanie

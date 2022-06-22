@@ -2,7 +2,7 @@
 import { VictoryPie } from "victory"
 
 function WykresKołowyKolor(props) {
-    console.log('zzz',props);
+    // console.log('zzz',props);
   return (
     <VictoryPie
     

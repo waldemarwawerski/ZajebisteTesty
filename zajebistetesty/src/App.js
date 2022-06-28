@@ -9,7 +9,7 @@ import WykresSlupkowyCzas from './WykresSlupkowyCzas';
 import WykresKołowyKolory from "./WykresKołowyKolory";
 import questions from "./questions";
 import predictColor from './predictColor';
-import { result } from "lodash";
+import { result, unzip } from "lodash";
 import getTime from './helpers/getTime';
 
 const App = () => {
@@ -38,6 +38,8 @@ const App = () => {
 
   const [czasOdpowiedzi, setCzasOdpowiedzi] = useState();
 
+  const [sredniCzasOdpowiedziNaWszystkiePytania, setSredniCzasOdpowiedziNaWszystkiePytania] = useState();
+
   const [pieChartData, setPieChartData] = useState({ R: 0, B: 0, G: 0, Y: 0 });
 
   useEffect(() => {
@@ -52,6 +54,11 @@ const App = () => {
 
       // testy ktore sa skończone
       const testFinished = answers.filter((test) => test.length >= 18);
+      
+
+      console.log('jakie nr pytania ma', testFinished);
+      console.log(dane.answers);
+
       setGetSkonczoneTesty(testFinished);
       // console.log('odpowiedzi', answers);
       setSkonczoneTesty(testFinished.length);
@@ -93,7 +100,7 @@ const App = () => {
       * np: wartoscZaznaczenia(0, 1) - wskazuje pierwsze kółko ile razy było zaznaczone w pierwszym pytanie we wszystkich testach. 
       */
       function ileZaznaczen(kolko, nrPytania) {
-        const wszystkieOdpowiedziNaPierwszePytanie = answers.map(test => test.filter((answer) => answer.question === nrPytania));
+        const wszystkieOdpowiedziNaPierwszePytanie = testFinished.map(test => test.filter((answer) => answer.question === nrPytania));
         const wszystkieTestyAleOdpowiedziTylkoNaPytaniePierwszegZero = wszystkieOdpowiedziNaPierwszePytanie.map(test => test.filter((answer => answer.value === kolko)));
         const pokazTylkoTeKtoreMajaWartosc = wszystkieTestyAleOdpowiedziTylkoNaPytaniePierwszegZero.filter(test => test[0]);
         const ileByloOdpowiedzi = pokazTylkoTeKtoreMajaWartosc.length;
@@ -126,17 +133,29 @@ const App = () => {
 
       const czasyOdpowiedziNaPierwszePytanie = [];
 
-      const czasyOdpowiedziNaWszystkiePytania = []
+      let czasyOdpowiedziNaWszystkiePytania = [];
 
       // Czasy odpowiedzi na pierwsze pytania
-
       console.log('odpowiedzi', testFinished);
-      for(let i = 0; i < answers.length; i++) {
-        czasyOdpowiedziNaWszystkiePytania.push(getTime(answers[i][0]));
+      for(let i = 0; i < testFinished.length; i++) {
+
+        const usersTimes = []; 
+        for(let j = 0; j <= 17; j++)
+        {
+            usersTimes.push(getTime(testFinished[i][j]));
+        }
+        czasyOdpowiedziNaWszystkiePytania.push(usersTimes);
       }
 
-      console.log('czas opowiedzi na wszystkie pytania', czasyOdpowiedziNaWszystkiePytania)
-      setCzasOdpowiedzi(czasyOdpowiedziNaWszystkiePytania);
+      const transpozycjaTablicy = unzip(czasyOdpowiedziNaWszystkiePytania);
+      const tablicaZeWszystkimiCzasami = transpozycjaTablicy.map(q=>q.reduce((prev, current)=>prev+current)/transpozycjaTablicy[0].length/1000);
+      console.log('suma', tablicaZeWszystkimiCzasami);
+
+      setSredniCzasOdpowiedziNaWszystkiePytania(tablicaZeWszystkimiCzasami);
+
+
+      console.log('czas opowiedzi na wszystkie pytania', unzip(czasyOdpowiedziNaWszystkiePytania))
+      setCzasOdpowiedzi(unzip(czasyOdpowiedziNaWszystkiePytania));
       
       const sumaCzasow = czasyOdpowiedziNaWszystkiePytania.reduce((previousValue, currentValue)=>previousValue+currentValue);
       console.log('średnia sumaCzasow', sumaCzasow/czasyOdpowiedziNaWszystkiePytania.length);
@@ -156,13 +175,13 @@ const App = () => {
           result[questions[o.question - 1].colors[0]] = result[questions[o.question - 1].colors[0]] + (100 - o.value);
           result[questions[o.question - 1].colors[1]] = result[questions[o.question - 1].colors[1]] + o.value;
         });
-        obliczKolor(answers[i]);
+        obliczKolor(testFinished[i]);
         return result;
       }
 
 
       let all = [];
-      for (let i = 1; i < answers.length; i++) {
+      for (let i = 1; i < testFinished.length; i++) {
         // tutaj wyswietlasz na konsoli
         const x  = calculateOne(i);
         all.push(predictColor(x['R'], x['B'], x['G'], x['Y']));
@@ -367,17 +386,23 @@ const COLORS_BACKGROUND = {
           result={pieChartData} />
           </div>
 
-          <WykresSlupkowyCzas
+          {/* <WykresSlupkowyCzas
                   style={{height: 400}}
                   data={czasOdpowiedzi}
-                />
+                  title={"Czas opowiedzi na 1 pytanie"}
+                /> */}
+          <WykresSlupkowyCzas
+            style={{height: 400}}
+            data={sredniCzasOdpowiedziNaWszystkiePytania}
+            title={"Średni czas opowiedzi na wszystkie pytania"}
+          />
       </RamkaWrapper>
            
       <RamkaWrapper>
         {
           // To jest funkcja map, która bierze tablicę np: [1,2,3,4,5].map((liczna)=>liczba)
           // a następnie przechodzi po kazdym elemecie tablicy i wyświetla jej wartość 
-          daneWykresSlupkowy.map((dana) => 
+          daneWykresSlupkowy.map((dana, i) => 
           {
           // console.log('dane dla jednego wykresu ', dana);
           if(dana.data)
@@ -404,7 +429,9 @@ const COLORS_BACKGROUND = {
                 height: 580
               }}>
                 <RamkaWrapper style={{backgroundColor: COLORS_BACKGROUND[getBackgroundColor]}}>
-                  <center><div style={{ width: 550, height: 100 }}><h2>{dana.title}</h2></div></center>
+                  <center><div style={{ width: 550, height: 100 }}><h2>{dana.title}</h2></div>
+                  <div style={{marginTop: -30, paddingBottom: 10, fontSize: 20}}> {(sredniCzasOdpowiedziNaWszystkiePytania[i].toFixed(2))} s</div></center>
+                 
                 </RamkaWrapper>
                 <WykresSlupkowy
                   style={{height: 400}}

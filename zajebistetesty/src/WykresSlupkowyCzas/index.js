@@ -8,7 +8,7 @@ function WykresSlupkowyCzas(props) {
   // < <--- dziubek
   return (
     <div className="App" style={{...props.style}}>
-      Czas opowiedzi na 1 pytanie
+      {props.title}
       <VictoryChart
       // motywy
       // {VictoryTheme.material} lub {VictoryTheme.grayscale}

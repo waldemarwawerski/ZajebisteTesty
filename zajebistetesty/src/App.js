@@ -51,7 +51,7 @@ const App = () => {
       setUserCounter(answers.length); // <-- tego kodu nie ruszasz bo to jest mój
 
       // testy ktore sa skończone
-      const testFinished = answers.filter((test) => test.length >= 17);
+      const testFinished = answers.filter((test) => test.length >= 18);
       setGetSkonczoneTesty(testFinished);
       // console.log('odpowiedzi', answers);
       setSkonczoneTesty(testFinished.length);
@@ -130,7 +130,7 @@ const App = () => {
 
       // Czasy odpowiedzi na pierwsze pytania
 
-      console.log('odpowiedzi', answers);
+      console.log('odpowiedzi', testFinished);
       for(let i = 0; i < answers.length; i++) {
         czasyOdpowiedziNaWszystkiePytania.push(getTime(answers[i][0]));
       }
@@ -345,10 +345,12 @@ const COLORS_BACKGROUND = {
   return (
     <>
       <RamkaWrapper>
-        <Ramka dane={userCounter}>Liczba wykonanych testów</Ramka>
+        <Ramka dane={userCounter}>Rozpoczęte i skończone testy</Ramka>
+        <Ramka dane={userCounter-skonczoneTesty}>nieskończone testy</Ramka>
+        <Ramka dane={skonczoneTesty}>Skończone testy</Ramka>
         {/* <Ramka dane={"x"}>Stosunek zarejestrowanych kont do wykonanych testów</Ramka> */}
         <Ramka dane={userCounterWhoWroteMessages}>Liczba osób, które wysłały wiadomość</Ramka>
-        <Ramka dane={skonczoneTesty}>Skończone testy</Ramka>
+        
 
         
 

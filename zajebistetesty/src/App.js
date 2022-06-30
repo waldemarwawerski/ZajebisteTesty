@@ -11,6 +11,7 @@ import questions from "./questions";
 import predictColor from './predictColor';
 import { result, unzip } from "lodash";
 import getTime from './helpers/getTime';
+import WykresPunktowy from "./WykresPunktowy";
 
 const App = () => {
   const [userCounter, setUserCounter] = useState();
@@ -36,6 +37,8 @@ const App = () => {
   const [data17, setData17] = useState();
   const [data18, setData18] = useState();
 
+  const [coor, setCoor] = useState();
+
   const [czasOdpowiedzi, setCzasOdpowiedzi] = useState();
 
   const [sredniCzasOdpowiedziNaWszystkiePytania, setSredniCzasOdpowiedziNaWszystkiePytania] = useState();
@@ -46,12 +49,19 @@ const App = () => {
     /* Magiczny kod który pobiera dane z bazy danych */
     getData.then((dane) => {
       // Przepisuje obiekt do tablicy
-      const answers = Object.keys(dane.answers).map((key) => dane.answers[key]);
+      const answers = Object.keys(dane.answers).map((key) => { 
+        const newAnswer = dane.answers[key].map((a=>{
+          a.id=key;
+          return a;
+        }));
+        return newAnswer
+      });
       const messages = Object.keys(dane.messages).map((key) => dane.messages[key]);
 
       // tutaj przypisujemy konkretną wartość do zmiennej userCouter
       setUserCounter(answers.length); // <-- tego kodu nie ruszasz bo to jest mój
 
+      console.log('aa',answers);
       // testy ktore sa skończone
       const testFinished = answers.filter((test) => test.length >= 18);
       
@@ -168,25 +178,34 @@ const App = () => {
         // console.log(i * 2)
       }
 
-      const calculateOne = (i) => {
+      const calculateOne = (i, test) => {
        
         const result = { R: 0, B: 0, G: 0, Y: 0 };
         const obliczKolor = (a) => Array.isArray(a) && a.map((o) => {
           result[questions[o.question - 1].colors[0]] = result[questions[o.question - 1].colors[0]] + (100 - o.value);
           result[questions[o.question - 1].colors[1]] = result[questions[o.question - 1].colors[1]] + o.value;
         });
-        obliczKolor(testFinished[i]);
+        obliczKolor(test[i]);
         return result;
       }
 
 
       let all = [];
-      for (let i = 1; i < testFinished.length; i++) {
+      let coordinates = [];
+      for (let i = 0; i < testFinished.length; i++) {
         // tutaj wyswietlasz na konsoli
-        const x  = calculateOne(i);
+        const x  = calculateOne(i, testFinished);
+
+        const axisX = x.R+x.Y-x.B-x.G;
+        const axisY = x.B+x.R-x.G-x.Y;
+
+ 
+        coordinates.push({x: axisX, y: axisY, id: testFinished[i][0].id});
         all.push(predictColor(x['R'], x['B'], x['G'], x['Y']));
       }
 
+      console.log(coordinates);
+      setCoor(coordinates);
       const counts = {};
 
       all.forEach(function (x) { counts[x] = (counts[x] || 0) + 1; });
@@ -377,7 +396,7 @@ const COLORS_BACKGROUND = {
         {/* <ZajebisteWykresy />  */}
 
       </RamkaWrapper>
-
+    
       <RamkaWrapper>
         <div style={{width: 400}}>
           <h3>Rozkład dominujących stylów</h3>
@@ -385,7 +404,9 @@ const COLORS_BACKGROUND = {
           colorsBackground={COLORS_BACKGROUND}
           result={pieChartData} />
           </div>
-
+          <RamkaWrapper>
+      <WykresPunktowy  style={{height: 500}} coordinates={coor} />
+    </RamkaWrapper>
           {/* <WykresSlupkowyCzas
                   style={{height: 400}}
                   data={czasOdpowiedzi}

@@ -12,6 +12,7 @@ import predictColor from './predictColor';
 import { result, unzip } from "lodash";
 import getTime from './helpers/getTime';
 import WykresPunktowy from "./WykresPunktowy";
+import Logowanie from "./Logowanie";
 
 const App = () => {
   const [userCounter, setUserCounter] = useState();
@@ -378,10 +379,10 @@ const COLORS_BACKGROUND = {
     },
   ]
 
-
+  const isLogged = false;
   // wyswietlanie
   return (
-    <>
+    !isLogged ? <Logowanie /> : <>
       <RamkaWrapper>
         <Ramka dane={userCounter}>Rozpoczęte i skończone testy</Ramka>
         <Ramka dane={userCounter-skonczoneTesty}>nieskończone testy</Ramka>
@@ -502,8 +503,8 @@ const COLORS_BACKGROUND = {
       })}
 
 
-    </>
+    </> 
   );
-}
+    }
 
 export default App;

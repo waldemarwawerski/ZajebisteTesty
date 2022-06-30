@@ -1,18 +1,43 @@
 
-import { VictoryChart, VictoryTheme, VictoryScatter, VictoryTooltip } from "victory"
-
+import { VictoryChart, VictoryTheme, VictoryScatter, VictoryTooltip, VictoryBar,VictoryAxis  } from "victory"
+import background from './wykrestlo.png'
 function WykresPunktowy(props) {
 
     return (
-        <div className="App" style={{...props.style}}>
+        <div className="App" style={{...props.style, backgroundImage: `url("${background}")`}} >
         <VictoryChart
-            theme={VictoryTheme.material}
+        
             domain={{ x: [-800, 800], y: [-800, 800] }}
             width="500"
             height={500}
         >
+             <VictoryAxis crossAxis
+    width={400}
+    height={400}
+    theme={VictoryTheme.material}
+    standalone={false}
+    tickFormat={[]}
+  />
+  <VictoryAxis dependentAxis crossAxis
+    width={400}
+    height={400}
+    theme={VictoryTheme.material}
+    standalone={false}
+    tickFormat={[]}
+  />
             <VictoryScatter
-                style={{ data: { fill: "#c43a31" } }}
+                style={
+                    { 
+                        data: 
+                        { 
+                            fill: "#000"
+                        },
+                        grid: 
+                        { 
+                            stroke: "none" 
+                        } 
+                    }
+                } 
                 size={3}
                 data={props.coordinates}
                 labels={({ datum }) => datum.id}

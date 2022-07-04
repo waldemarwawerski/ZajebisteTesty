@@ -37,6 +37,8 @@ const App = () => {
   const [data16, setData16] = useState();
   const [data17, setData17] = useState();
   const [data18, setData18] = useState();
+  
+  const [isLogged, setIsLogged] = useState(false);
 
   const [coor, setCoor] = useState();
 
@@ -379,10 +381,10 @@ const COLORS_BACKGROUND = {
     },
   ]
 
-  const isLogged = false;
+  
   // wyswietlanie
   return (
-    !isLogged ? <Logowanie /> : <>
+    !isLogged ? <Logowanie setIsLogged={setIsLogged} /> : <>
       <RamkaWrapper>
         <Ramka dane={userCounter}>Rozpoczęte i skończone testy</Ramka>
         <Ramka dane={userCounter-skonczoneTesty}>nieskończone testy</Ramka>
